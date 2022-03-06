@@ -1,0 +1,30 @@
+{% extends "base.html" %} 
+
+{% block title %} Arike Login {% endblock title %}
+
+{% block content %}
+<div class="flex w-full items-center justify-center">
+    <div class="bg-black-600 text-white-600 justify-center w-1/2">
+        <h1>Arike</h1>
+        <h3>{% lorem 1 b random %}</h3>
+    </div>
+    <div class="text-black-600 bg-white-600 justify-center w-1/2">
+        <div>
+            <div class="fieldWrapper">
+                <label for="{{ form.username.id_for_label }}">Username:</label>
+                {{ form.username }}
+                <div class="text-xs text-red-600 py-1">{{ form.username.errors }}</div>
+            </div>
+            <div class="fieldWrapper">
+                <label for="{{ form.password.id_for_label }}">Password:</label>
+                {{ form.password }}
+                <div class="text-xs text-red-600 py-1">{{ form.password.errors }}</div>
+            </div>
+            <div class="text-xs text-red-600 py-1">{{ form.non_field_errors }}</div>
+            <button class="bg-black-500 hover:bg-black-700 text-white font-medium py-2 px-4 rounded-md font-base text-center mt-8 w-full">
+                Login
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock content %}
