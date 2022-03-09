@@ -1,0 +1,26 @@
+{% extends "../base.html" %} {% block base %}
+{% comment %} {% block title %}Login{% endblock %} {% endcomment %}
+<div class="grid grid-rows-4 flex flex-wrap w-full h-full align-center justify-around">
+	<div>
+		<ul>
+			<li> <a href="">Home</a> </li>
+			<li> 
+				<a href="">Users</a> 
+				<ul>
+					<li>View</li>
+					<li>Create</li>
+				</ul>
+			</li>
+			<li> 
+				<a href="">Facility</a>
+				<ul>
+					<li>View</li>
+					<li>Create</li>
+				</ul> 
+			</li>
+		</ul>
+	</div>
+	{% block content %}
+	{% endblock %}
+</div>
+{% endblock base %}

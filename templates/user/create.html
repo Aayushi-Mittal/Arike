@@ -1,0 +1,12 @@
+{% extends "../base_dashboard.html" %} {% block base %}
+{% block title %}Login{% endblock %}
+<div class="flex flex-wrap w-full h-full align-center justify-around">
+	<div class="bg-gray-600 text-gray-100">
+		<h1 class="font-bold text-6xl">Arike</h1>
+		<p>{{% lorem 1 b random %}}</p>
+	</div>
+	<div class="bg-gray-100 text-gray-600">
+		{{form}}
+	</div>
+</div>
+{% endblock base %}
