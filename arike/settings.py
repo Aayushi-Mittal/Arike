@@ -137,6 +137,10 @@ INTERNAL_IPS = [
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
+LOGIN_REDIRECT_URL="/dashboard"
+LOGIN_URL="/login/"
+LOGOUT_REDIRECT_URL="/login"
+
 # MIDDLEWARE = [
 #   "django_browser_reload.middleware.BrowserReloadMiddleware"
 # ]
