@@ -51,3 +51,16 @@ class TreatmentCreationForm(forms.ModelForm):
     class Meta(forms.ModelForm):
         model = Treatment
         fields = ("description", "care_type", "care_sub_type", "patient", "nurse", "deleted")
+        
+        
+class FamilyCreationForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            if field!="deleted" and field!="is_primary":
+                self.fields[field].widget.attrs["class"] = "p-1 mb-2 bg-gray-200/75 rounded-lg w-full"
+
+    class Meta(forms.ModelForm):
+        model = Family_Detail
+        fields = ("full_name", "date_of_birth", "phone", "email", "relation", "address", "education", "occupation", "remarks", "is_primary", "patient", "deleted")
+

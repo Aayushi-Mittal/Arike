@@ -174,3 +174,52 @@ class TreatmentUpdateView(UpdateView):
         self.object.user = self.request.user
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
+
+
+
+# Treatment Views
+
+# class AuthorizedFamilyManager(LoginRequiredMixin):
+#     login_url = "/login"
+#     success_url = "/dashboard"
+#     model = Family
+
+#     def get_queryset(self):
+#         return Family.objects.filter(deleted=False, userprofile=self.request.user)
+
+
+class FamilyListView(ListView):
+    queryset = Family_Detail.objects.filter(deleted=False)
+    template_name = "family/list.html"
+    context_object_name = "family"
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Family_Detail.objects.filter(deleted=False)
+
+
+class FamilyCreateView(CreateView):
+    model = Family_Detail
+    form_class = FamilyCreationForm
+    template_name = "family/create.html"
+    success_url = "/family"
+
+
+class FamilyDeleteView(DeleteView):
+    model = Family_Detail
+    template_name = "CRUD/delete.html"
+    success_url = "/family"
+
+
+class FamilyUpdateView(UpdateView):
+    model = Family_Detail
+    form_class = FamilyCreationForm
+    template_name = "family/update.html"
+    success_url = "/family"
+
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+

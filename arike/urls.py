@@ -23,5 +23,9 @@ urlpatterns = [
     path("treatment/create/", TreatmentCreateView.as_view()),
     path("treatment/update/<pk>/", TreatmentUpdateView.as_view()),
     path("treatment/delete/<pk>/", TreatmentDeleteView.as_view()),
+    path("family/", FamilyListView.as_view()),
+    path("family/create/", FamilyCreateView.as_view()),
+    path("family/update/<pk>/", FamilyUpdateView.as_view()),
+    path("family/delete/<pk>/", FamilyDeleteView.as_view()),
     path("dashboard/", Dashboard.as_view()),
 ]
