@@ -23,8 +23,12 @@
                 <li>Ward: {{p.ward}}</li>
                 <li>Facility: {{p.facility}}</li>
             </ul>
-            <a href="/patient/update/{{p.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg" type="submit"><i class="fi fi-rr-pencil"></i></button></a>
-            <a href="/patient/delete/{{p.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg" type="submit"><i class="fi fi-rr-trash"></i></button></a>
+            <a href="/patient/update/{{p.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg hover:bg-red-600" type="submit"><i class="fi fi-rr-pencil mr-1"></i> Edit</button></a>
+            <a href="/patient/delete/{{p.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg hover:bg-red-600" type="submit"><i class="fi fi-rr-trash mr-1"></i> Delete</button></a>
+            <a href="/family/?patient_id={{p.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg hover:bg-red-600" type="submit"><i class="fi fi-rr-id-badge mr-1"></i> Family Details</button></a>
+            <a href="/disease/?patient_id={{p.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg hover:bg-red-600" type="submit"><i class="fi fi-rr-syringe mr-1"></i> Disease</button></a>
+            <a href="/treatment/?patient_id={{p.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg hover:bg-red-600" type="submit"><i class="fi fi-rr-treatment mr-1"></i> Treatment</button></a>
+            <a href="/visit/?patient_id={{p.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg hover:bg-red-600" type="submit"><i class="fi fi-rr-clock mr-1"></i> Visits</button></a>
         </div>
     {% empty %}
         <div class="flex items-center justify-center">
