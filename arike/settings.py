@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_browser_reload',
+    'arike_manager',
     'tailwind',
     'theme',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +59,7 @@ ROOT_URLCONF = 'arike.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,6 +134,12 @@ TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
+
+LOGIN_REDIRECT_URL="/dashboard"
+LOGIN_URL="/login/"
+LOGOUT_REDIRECT_URL="/login"
 
 # MIDDLEWARE = [
 #   "django_browser_reload.middleware.BrowserReloadMiddleware"

@@ -1,0 +1,29 @@
+{% extends "../CRUD/read.html" %}
+{% block fieldname %}patient{% endblock fieldname %}
+{% load crispy_forms_tags %} 
+{% block list %}
+    {% for p in patients %}
+        <div class="shadow bg-gray-100 rounded-lg w-1/3 p-4 m-2">
+            <a href="#"><h2 class="text-xl font-semibold hover:text-red-600"><i class="fi fi-rr-user mr-2"></i>{{p.full_name}}</h2></a>
+            <ul class="text-sm text-gray-500">
+                <li>DOB: {{p.date_of_birth}}</li>
+                <li>Gender: {{p.gender}}</li>
+                <li>Address: {{p.address}} \n Landmark: {{p.landmark}}</li>
+                <li>Phone: {{p.phone}}</li>
+                <li>Emergency Ph.no.: {{p.emergency_phone_number}}</li>
+                {% if p.expired_time != "null" %}
+                <li>Expired: {{p.expired_time}}</li>
+                {% endif %}
+                <li>Ward: {{p.ward}}</li>
+                <li>Facility: {{p.facility}}</li>
+            </ul>
+            <a href="#"><button class="mt-2 p-2 w-1/2 bg-red-500 text-gray-100 text-md font-semibold rounded-lg" type="submit">UPDATE</button></a>
+            <a href="#"><button class="mt-2 p-2 w-1/2 bg-red-500 text-gray-100 text-md font-semibold rounded-lg" type="submit">DELETE</button></a>
+        </div>
+    {% endfor %}
+    {% empty %}
+        <div class="flex items-center justify-center h-screen w-screen">
+            <div class="2xl">No Patients yet.</div>
+        </div>
+    {% endfor %}
+{% endblock list %}
