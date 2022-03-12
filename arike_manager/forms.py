@@ -84,4 +84,13 @@ class VisitDetailsCreationForm(forms.ModelForm):
         model = Visit_Details
         fields = ("palliative_phase", "blood_pressure", "pulse", "general_random_blood_sugar", "personal_hygiene", "mouth_hygiene", "pubic_hygiene", "systemic_examination", "patient_at_peace", "pain", "symptoms", "note", "visit_schedule")
 
+class PatientDiseaseForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            if field!="deleted":
+                self.fields[field].widget.attrs["class"] = "p-1 mb-2 bg-gray-200/75 rounded-lg w-full"
+    class Meta(forms.ModelForm):
+        model = Patient_Disease
+        fields = ("patient", "disease", "treatment", "note", "nurse", "deleted")
 

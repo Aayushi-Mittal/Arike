@@ -80,7 +80,6 @@ class FacilityUpdateView(UpdateView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-
 # Patient Views
 
 # class AuthorizedPatientManager(LoginRequiredMixin):
@@ -126,7 +125,6 @@ class PatientUpdateView(UpdateView):
         self.object.user = self.request.user
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
-
 
 
 # Treatment Views
@@ -176,7 +174,6 @@ class TreatmentUpdateView(UpdateView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-
 # Family Views
 
 # class AuthorizedFamilyManager(LoginRequiredMixin):
@@ -224,6 +221,52 @@ class FamilyUpdateView(UpdateView):
         return HttpResponseRedirect(self.get_success_url())
 
 
+# Disease Views
+
+# class AuthorizedDiseaseManager(LoginRequiredMixin):
+#     login_url = "/login"
+#     success_url = "/dashboard"
+#     model = Patient_Disease
+
+#     def get_queryset(self):
+#         return Patient_Disease.objects.filter(deleted=False, userprofile=self.request.user)
+
+
+class DiseaseListView(ListView):
+    queryset = Patient_Disease.objects.filter(deleted=False)
+    template_name = "disease/list.html"
+    context_object_name = "disease"
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Patient_Disease.objects.filter(deleted=False)
+
+
+class DiseaseCreateView(CreateView):
+    model = Patient_Disease
+    form_class = PatientDiseaseForm
+    template_name = "disease/create.html"
+    success_url = "/disease"
+
+
+class DiseaseDeleteView(DeleteView):
+    model = Patient_Disease
+    template_name = "CRUD/delete.html"
+    success_url = "/disease"
+
+
+class DiseaseUpdateView(UpdateView):
+    model = Schedule_Visit
+    form_class = PatientDiseaseForm
+    template_name = "disease/update.html"
+    success_url = "/disease"
+
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
 
 # Visit Views
 
@@ -270,4 +313,3 @@ class VisitUpdateView(UpdateView):
         self.object.user = self.request.user
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
-
