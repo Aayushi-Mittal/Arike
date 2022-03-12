@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'arike_manager',
     'tailwind',
     'theme',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,8 @@ TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 # MIDDLEWARE = [
 #   "django_browser_reload.middleware.BrowserReloadMiddleware"

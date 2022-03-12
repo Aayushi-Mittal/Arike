@@ -1,26 +1,24 @@
-{% extends "../base.html" %} {% block base %}
-{% comment %} {% block title %}Login{% endblock %} {% endcomment %}
-<div class="grid grid-rows-4 flex flex-wrap w-full h-full align-center justify-around">
-	<div>
-		<ul>
-			<li> <a href="">Home</a> </li>
-			<li> 
-				<a href="">Users</a> 
-				<ul>
-					<li>View</li>
-					<li>Create</li>
-				</ul>
-			</li>
-			<li> 
-				<a href="">Facility</a>
-				<ul>
-					<li>View</li>
-					<li>Create</li>
-				</ul> 
-			</li>
+
+{% extends "./base.html" %} 
+{% block base %}
+
+<div class="flex h-full bg-green-500">
+	<aside class="w-64 bg-gray-200 flex flex-col h-screen p-8" aria-label="Sidebar">
+		<h1 class="py-3 text-3xl text-green-500">ARIKE</h1>
+		<ul class="p-2 text-gray-500">
+			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500 font-semibold"><i class="fi fi-rr-home mr-2"></i>Home</li></a>
+			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-apps mr-2"></i>Facility</li></a>
+			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-user mr-2"></i>Patient</li></a>
+			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-treatment mr-2"></i>Treatment Details</li></a>
+			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-document-signed mr-2"></i>Patient Family Details</li></a>
+			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-settings-sliders mr-2"></i>Assign Nurses</li></a>
+			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-user-add mr-2"></i>Create Users</li></a>
+			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-power mr-2"></i>Log Out</li></a>
 		</ul>
+	</aside>
+	<div class="w-3/4">
+		{% block content %}
+		{% endblock %}
 	</div>
-	{% block content %}
-	{% endblock %}
 </div>
 {% endblock base %}
