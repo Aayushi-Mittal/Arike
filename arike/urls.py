@@ -15,5 +15,9 @@ urlpatterns = [
     path("facility/update/<pk>/", FacilityUpdateView.as_view()),
     path("facility/delete/<pk>/", FacilityDeleteView.as_view()),
     path("facility/detail/<pk>/", FacilityDetailView.as_view()),
+    path("patient/", PatientListView.as_view()),
+    path("patient/create/", PatientCreateView.as_view()),
+    path("patient/update/<pk>/", PatientUpdateView.as_view()),
+    path("patient/delete/<pk>/", PatientDeleteView.as_view()),
     path("dashboard/", Dashboard.as_view()),
 ]

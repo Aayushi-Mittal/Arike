@@ -28,3 +28,15 @@ class FacilityCreationForm(forms.ModelForm):
     class Meta(forms.ModelForm):
         model = Facility
         fields = ("kind", "name", "address", "pincode", "phone", "ward", "deleted")
+
+      
+class PatientCreationForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            if field!="deleted":
+                self.fields[field].widget.attrs["class"] = "p-1 mb-2 bg-gray-200/75 rounded-lg w-full"
+
+    class Meta(forms.ModelForm):
+        model = Patient
+        fields = ("full_name", "date_of_birth", "address", "landmark", "phone", "gender", "emergency_phone_number", "ward", "facility", "deleted", "expired_time")
