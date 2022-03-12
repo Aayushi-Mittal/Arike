@@ -29,6 +29,7 @@ class Dashboard(LoginRequiredMixin, TemplateView):
 
 
 # Facility Views
+
 # class AuthorizedFacilityManager(LoginRequiredMixin):
 #     login_url = "/login"
 #     success_url = "/dashboard"
