@@ -177,7 +177,7 @@ class TreatmentUpdateView(UpdateView):
 
 
 
-# Treatment Views
+# Family Views
 
 # class AuthorizedFamilyManager(LoginRequiredMixin):
 #     login_url = "/login"
@@ -216,6 +216,54 @@ class FamilyUpdateView(UpdateView):
     form_class = FamilyCreationForm
     template_name = "family/update.html"
     success_url = "/family"
+
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+
+
+# Visit Views
+
+# class AuthorizedVisitManager(LoginRequiredMixin):
+#     login_url = "/login"
+#     success_url = "/dashboard"
+#     model = Visit
+
+#     def get_queryset(self):
+#         return Schedule_Visit.objects.filter(deleted=False, userprofile=self.request.user)
+
+
+class VisitListView(ListView):
+    queryset = Schedule_Visit.objects.filter(deleted=False)
+    template_name = "visits/list.html"
+    context_object_name = "visit"
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Schedule_Visit.objects.filter(deleted=False)
+
+
+class VisitCreateView(CreateView):
+    model = Schedule_Visit
+    form_class = VisitCreationForm
+    template_name = "visits/create.html"
+    success_url = "/visit"
+
+
+class VisitDeleteView(DeleteView):
+    model = Schedule_Visit
+    template_name = "CRUD/delete.html"
+    success_url = "/visit"
+
+
+class VisitUpdateView(UpdateView):
+    model = Schedule_Visit
+    form_class = VisitCreationForm
+    template_name = "visits/update.html"
+    success_url = "/visit"
 
     def form_valid(self, form):
         self.object = form.save()

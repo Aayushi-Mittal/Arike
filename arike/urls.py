@@ -27,5 +27,9 @@ urlpatterns = [
     path("family/create/", FamilyCreateView.as_view()),
     path("family/update/<pk>/", FamilyUpdateView.as_view()),
     path("family/delete/<pk>/", FamilyDeleteView.as_view()),
+    path("visit/", VisitListView.as_view()),
+    path("visit/create/", VisitCreateView.as_view()),
+    path("visit/update/<pk>/", VisitUpdateView.as_view()),
+    path("visit/delete/<pk>/", VisitDeleteView.as_view()),
     path("dashboard/", Dashboard.as_view()),
 ]
