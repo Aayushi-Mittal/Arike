@@ -15,7 +15,7 @@
 			{% if request.user == "admin" or request.user == "distadmin" %}
 			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-user-add mr-2"></i>Create Nurses</li></a>
 			{% endif %}
-			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-portrait mr-2"></i>Profile</li></a>
+			<a href="/profile/{{request.user.id}}"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-portrait mr-2"></i>Profile</li></a>
 			<a href="/logout/"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-power mr-2"></i>Log Out</li></a>
 		</ul>
 	</aside>

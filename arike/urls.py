@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
     path("user/create/", UserCreateView.as_view()),
+    path("profile/<pk>/", UserUpdateView.as_view()),
     path("login/", UserLoginView.as_view()),
     path("logout/", LogoutView.as_view()),
     path("facility/", FacilityListView.as_view()),

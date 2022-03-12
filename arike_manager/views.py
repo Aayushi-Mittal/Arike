@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -27,6 +28,18 @@ class UserLoginView(LoginView):
 class Dashboard(LoginRequiredMixin, TemplateView):
     template_name = "auth/dashboard.html"
 
+
+class UserUpdateView(UpdateView):
+    model = UserProfile
+    form_class = UserProfileForm
+    template_name = "auth/profile.html"
+    success_url = "/dashboard"
+
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 # Facility Views
 
@@ -145,7 +158,11 @@ class TreatmentListView(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Treatment.objects.filter(deleted=False)
+        pid = self.request.GET.get("patient_id")
+        res = Treatment.objects.filter(deleted=False)
+        if pid:
+            res = res.filter(patient__id=pid)
+        return res
 
 
 class TreatmentCreateView(CreateView):
@@ -192,7 +209,11 @@ class FamilyListView(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Family_Detail.objects.filter(deleted=False)
+        pid = self.request.GET.get("patient_id")
+        res = Family_Detail.objects.filter(deleted=False)
+        if pid:
+            res = res.filter(patient__id=pid)
+        return res
 
 
 class FamilyCreateView(CreateView):
@@ -239,7 +260,11 @@ class DiseaseListView(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Patient_Disease.objects.filter(deleted=False)
+        pid = self.request.GET.get("patient_id")
+        res = Patient_Disease.objects.filter(deleted=False)
+        if pid:
+            res = res.filter(patient__id=pid)
+        return res
 
 
 class DiseaseCreateView(CreateView):
@@ -286,7 +311,11 @@ class VisitListView(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Schedule_Visit.objects.filter(deleted=False)
+        pid = self.request.GET.get("patient_id")
+        res = Schedule_Visit.objects.filter(deleted=False)
+        if pid:
+            res = res.filter(patient__id=pid)
+        return res
 
 
 class VisitCreateView(CreateView):
