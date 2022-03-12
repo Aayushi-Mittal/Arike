@@ -83,7 +83,7 @@ class FacilityUpdateView(UpdateView):
 
 # Patient Views
 
-# class AuthorizedFacilityManager(LoginRequiredMixin):
+# class AuthorizedPatientManager(LoginRequiredMixin):
 #     login_url = "/login"
 #     success_url = "/dashboard"
 #     model = Patient
@@ -120,6 +120,54 @@ class PatientUpdateView(UpdateView):
     form_class = PatientCreationForm
     template_name = "patient/update.html"
     success_url = "/patient"
+
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+
+
+# Treatment Views
+
+# class AuthorizedTreatmentManager(LoginRequiredMixin):
+#     login_url = "/login"
+#     success_url = "/dashboard"
+#     model = Treatment
+
+#     def get_queryset(self):
+#         return Treatment.objects.filter(deleted=False, userprofile=self.request.user)
+
+
+class TreatmentListView(ListView):
+    queryset = Treatment.objects.filter(deleted=False)
+    template_name = "treatment/list.html"
+    context_object_name = "treatment"
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Treatment.objects.filter(deleted=False)
+
+
+class TreatmentCreateView(CreateView):
+    model = Treatment
+    form_class = TreatmentCreationForm
+    template_name = "treatment/create.html"
+    success_url = "/treatment"
+
+
+class TreatmentDeleteView(DeleteView):
+    model = Treatment
+    template_name = "CRUD/delete.html"
+    success_url = "/treatment"
+
+
+class TreatmentUpdateView(UpdateView):
+    model = Treatment
+    form_class = TreatmentCreationForm
+    template_name = "treatment/update.html"
+    success_url = "/treatment"
 
     def form_valid(self, form):
         self.object = form.save()

@@ -40,3 +40,14 @@ class PatientCreationForm(forms.ModelForm):
     class Meta(forms.ModelForm):
         model = Patient
         fields = ("full_name", "date_of_birth", "address", "landmark", "phone", "gender", "emergency_phone_number", "ward", "facility", "deleted", "expired_time")
+
+class TreatmentCreationForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            if field!="deleted":
+                self.fields[field].widget.attrs["class"] = "p-1 mb-2 bg-gray-200/75 rounded-lg w-full"
+
+    class Meta(forms.ModelForm):
+        model = Treatment
+        fields = ("description", "care_type", "care_sub_type", "patient", "nurse", "deleted")
