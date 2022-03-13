@@ -152,7 +152,9 @@ LOGIN_REDIRECT_URL="/dashboard"
 LOGIN_URL="/login/"
 LOGOUT_REDIRECT_URL="/login"
 
-STATIC_ROOT = "staticfiles"
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles/"
+
 # ALLOWED_HOSTS = ["gdc-arike.herokuapp.com"]
 
 # MIDDLEWARE = [
