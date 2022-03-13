@@ -27,7 +27,7 @@ class UserProfileForm(AuthenticationForm):
             
     class Meta:
         model = UserProfile
-        fields = ("password", "phone", "is_verified", "role", "facility", "district")
+        fields = ("phone", "is_verified", "role", "facility", "district", "user")
         
 class FacilityCreationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):

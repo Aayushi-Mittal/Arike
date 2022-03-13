@@ -24,11 +24,6 @@ class UserLoginView(LoginView):
     template_name = "auth/login.html"
     success_url = "/dashboard/"
 
-
-class Dashboard(LoginRequiredMixin, TemplateView):
-    template_name = "auth/dashboard.html"
-
-
 class UserUpdateView(UpdateView):
     model = UserProfile
     form_class = UserProfileForm
@@ -40,6 +35,26 @@ class UserUpdateView(UpdateView):
         self.object.user = self.request.user
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
+
+
+class UserListView(ListView):
+    queryset = Facility.objects.filter(deleted=False)
+    template_name = "auth/list.html"
+    context_object_name = "facility"
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Facility.objects.filter(deleted=False)
+
+class UserDeleteView(DeleteView):
+    model = Facility
+    template_name = "CRUD/delete.html"
+    success_url = "/users/"
+
+
+class Dashboard(LoginRequiredMixin, TemplateView):
+    template_name = "auth/dashboard.html"
+
 
 # Facility Views
 

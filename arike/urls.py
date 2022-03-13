@@ -7,7 +7,10 @@ from arike_manager.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
+    path("users/", UserListView.as_view()),
     path("user/create/", UserCreateView.as_view()),
+    path("user/update/<pk>/", UserUpdateView.as_view()),
+    path("user/delete/<pk>/", UserDeleteView.as_view()),
     path("profile/<pk>/", UserUpdateView.as_view()),
     path("login/", UserLoginView.as_view()),
     path("logout/", LogoutView.as_view()),
