@@ -94,6 +94,7 @@ class UserProfile(TimeStampMixin):
     district = models.ForeignKey(
         District, on_delete=models.CASCADE, blank=True, null=True
     )
+    USERNAME_FIELD = 'user.username'
 
     def __str__(self):
         return f"{self.user.username}"

@@ -155,7 +155,7 @@ LOGOUT_REDIRECT_URL="/login"
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles/"
 
-ALLOWED_HOSTS = ["gdc-arike.herokuapp.com"]
+ALLOWED_HOSTS = ["*"]
 
 # MIDDLEWARE = [
 #   "django_browser_reload.middleware.BrowserReloadMiddleware"

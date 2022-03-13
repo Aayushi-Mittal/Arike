@@ -6,7 +6,7 @@ class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields:
-            if field!="deleted":
+            if field!="deleted" or field!="is_verified":
                 self.fields[field].widget.attrs["class"] = "p-1 mb-2 bg-gray-200/75 rounded-lg w-full"    
     class Meta:
         model = UserProfile

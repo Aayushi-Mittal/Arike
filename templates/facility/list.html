@@ -4,7 +4,9 @@
 <div class="flex flex-col flex-wrap px-10 py-5 m-5">
     <div class="flex">
         <h1 class="text-3xl text-gray-100 mr-10 mb-5">Facilities</h1>
+        {% if request.user == "admin" or request.user == "distadmin" or request.user.username == "admin" or request.user.username == "distadmin" %}
         <a href="/facility/create/"><button class="p-2 w-200 bg-red-500 text-gray-100 rounded-lg"><i class="fi fi-rr-add mr-2"></i>Add</button></a>
+        {% endif %}
     </div>
     <div class="flex flex-wrap">
         {% for f in facility %}
@@ -17,8 +19,10 @@
                     <li><b>Pincode:</b> {{f.pincode}}</li>
                     <li><b>Phone Number:</b> {{f.phone}}</li>
                 </ul>
+                {% if request.user == "admin" or request.user == "distadmin" or request.user.username == "admin" or request.user.username == "distadmin" %}
                 <a href="/facility/update/{{f.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg" type="submit"><i class="fi fi-rr-pencil"></i></button></a>
                 <a href="/facility/delete/{{f.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg" type="submit"><i class="fi fi-rr-trash"></i></button></a>
+                {% endif %}
             </div>
         {% empty %}
             <div class="flex items-center justify-center">
