@@ -16,8 +16,8 @@
                 <li>Nurse: {{d.nurse}}</li>
                 <li>Note: {{d.note}}</li>
             </ul>
-            <a href="/disease/update/{{f.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg" type="submit"><i class="fi fi-rr-pencil"></i></button></a>
-            <a href="/disease/delete/{{f.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg" type="submit"><i class="fi fi-rr-trash"></i></button></a>
+            <a href="/disease/update/{{d.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg" type="submit"><i class="fi fi-rr-pencil"></i></button></a>
+            <a href="/disease/delete/{{d.id}}/"><button class="mt-2 p-2 bg-red-500 text-gray-100 rounded-lg" type="submit"><i class="fi fi-rr-trash"></i></button></a>
         </div>
     {% empty %}
         <div class="flex items-center justify-center">
