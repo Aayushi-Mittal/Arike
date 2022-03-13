@@ -15,7 +15,7 @@ from arike_manager.models import *
 class UserCreateView(CreateView):
     model = UserProfile
     form_class = CustomUserCreationForm
-    template_name = "user/create.html"
+    template_name = "auth/create.html"
     success_url = "/login/"
 
 

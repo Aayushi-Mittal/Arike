@@ -13,7 +13,7 @@
 			{% comment %} <a href="/family/"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-id-badge mr-2"></i>Patient Family Details</li></a> {% endcomment %}
 			<a href="/visit/"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-clock mr-2"></i></i>Schedule Visits</li></a>
 			{% if request.user == "admin" or request.user == "distadmin" %}
-			<a href="#"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-user-add mr-2"></i>Create Nurses</li></a>
+			<a href="/user/create/"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-user-add mr-2"></i>Create Nurses</li></a>
 			{% endif %}
 			<a href="/profile/{{request.user.id}}"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-portrait mr-2"></i>Profile</li></a>
 			<a href="/logout/"><li class="py-3 border-b-2 border-green-500 hover:text-gray-900 hover:border-red-500"><i class="fi fi-rr-power mr-2"></i>Log Out</li></a>

@@ -10,7 +10,7 @@ class CustomUserCreationForm(UserCreationForm):
                 self.fields[field].widget.attrs["class"] = "p-1 mb-2 bg-gray-200/75 rounded-lg w-full"    
     class Meta:
         model = UserProfile
-        fields = ("phone", "is_verified", "role", "facility", "district")
+        fields = ("user", "phone", "is_verified", "role", "facility", "district")
 
 
 class CustomAuthenticationForm(AuthenticationForm):
