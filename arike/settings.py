@@ -141,6 +141,8 @@ LOGIN_REDIRECT_URL="/dashboard"
 LOGIN_URL="/login/"
 LOGOUT_REDIRECT_URL="/login"
 
+STATIC_ROOT = "staticfiles"
+
 # MIDDLEWARE = [
 #   "django_browser_reload.middleware.BrowserReloadMiddleware"
 # ]
