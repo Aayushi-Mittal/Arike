@@ -24,11 +24,11 @@ The main users for Arike are:
 - **Facility:** It can be a PHC or CHC.
 - **Patient:** In our system, a patient is an object whose data we are dealing with, and they never get to use the software. A patient is registered in a PHC and is only referred to a CHC.
 
-### Expected Wireframe:
-https://www.figma.com/file/kgOXmtptNxJUvkJ2qjeyzA/Django-201-Capstone?node-id=3%3A1146
+<!--### Expected Wireframe:
+https://www.figma.com/file/kgOXmtptNxJUvkJ2qjeyzA/Django-201-Capstone?node-id=3%3A1146-->
 
-<!-- ## Login Details:
-A user with the following usernames must be pre made in the system for easy access:
+## Login Details:
+A user with the following usernames can login in the system:
 
 ```
 Username: distadmin 
@@ -42,4 +42,4 @@ UserType: Primary Nurse
 Username: secondarynurse
 Password: secondarynurse
 UserType: Secondary Nurse
-``` -->
+```
